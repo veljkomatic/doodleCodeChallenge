@@ -3,12 +3,22 @@ import './Message.css'
 
 class Message extends PureComponent {
 
+	formatTimestamp(timestamp) {
+		return new Intl.DateTimeFormat('en-GB', {
+			year: 'numeric',
+			month: 'short',
+			day: 'numeric',
+			hour: 'numeric',
+			minute: 'numeric'
+		}).format(new Date(timestamp));
+	}
+
 	renderOther = () => {
 		return (
 			<div className="Message">
-				<div className="Message__sender">{this.props.author}</div>
-				<div className="Message__body">{this.props.message}</div>
-				<div className="Message__timestamp">{this.props.timestamp}</div>
+				<p className="Message__sender">{this.props.author}</p>
+				<p className="Message__body">{this.props.message}</p>
+				<p className="Message__timestamp">{this.formatTimestamp(this.props.timestamp)}</p>
 			</div>
 		);
 	}
@@ -16,8 +26,8 @@ class Message extends PureComponent {
 	renderMine = () => {
 		return (
 			<div className="Message Message--personal">
-				<div className="Message__body">{this.props.message}</div>
-				<div className="Message__timestamp">{this.props.timestamp}</div>
+				<p className="Message__body">{this.props.message}</p>
+				<p className="Message__timestamp">{this.formatTimestamp(this.props.timestamp)}</p>
 			</div>
 		);
 	}
