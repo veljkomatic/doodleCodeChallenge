@@ -4,6 +4,7 @@ import './Message.css'
 class Message extends PureComponent {
 
 	formatTimestamp(timestamp) {
+		timestamp = parseInt(timestamp, 10);
 		return new Intl.DateTimeFormat('en-GB', {
 			year: 'numeric',
 			month: 'short',

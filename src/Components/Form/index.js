@@ -5,7 +5,10 @@ class Form extends PureComponent {
 
 	handleSubmit = (event) => {
 		event.preventDefault();
-		this.props.send(this.text.value)
+		if(this.text.value !== '' ) {
+			this.props.send(this.text.value)
+			this.text.value = '';
+		}
 	}
 
 	render() {

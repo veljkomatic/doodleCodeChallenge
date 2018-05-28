@@ -17,3 +17,23 @@
 	position: fixed;
 	bottom: 0;
 }
+
+.Info {
+	background: #3D99D2;
+	padding: 8px;
+	display: flex;
+	justify-content: center;
+	color: white;
+	font-size: 12px;
+	align-items: center;
+	width: 100%;
+	position: fixed
+}
+
+.Info__button {
+	border: 0;
+	border-radius: 5px;
+	margin-left: 10px;
+	padding: 5px;
+	width: 60px;
+}
