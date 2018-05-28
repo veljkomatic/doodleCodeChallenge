@@ -4,14 +4,13 @@ import './Message.css'
 class Message extends PureComponent {
 
 	formatTimestamp(timestamp) {
-		timestamp = parseInt(timestamp, 10);
 		return new Intl.DateTimeFormat('en-GB', {
 			year: 'numeric',
 			month: 'short',
 			day: 'numeric',
 			hour: 'numeric',
 			minute: 'numeric'
-		}).format(new Date(timestamp));
+		}).format(new Date(parseInt(timestamp, 10)));
 	}
 
 	renderOther = () => {
