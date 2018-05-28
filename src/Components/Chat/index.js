@@ -17,6 +17,7 @@ class Chat extends PureComponent {
 	}
 
 	componentDidMount() {
+		// simulate getting new messages via socket connection
 		setInterval(async () => {
 			const numberOfMessages = this.props.messagesData.length;
 			const last = this.props.messagesData[numberOfMessages - 1];
