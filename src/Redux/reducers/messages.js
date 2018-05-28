@@ -19,7 +19,7 @@ export default (state = INITIAL_STATE, action) => {
 				...state,
 				loading: false,
 				error: '',
-				messagesData: action.payload 
+				messagesData: [...state.messagesData, ...action.payload]
 			};
 		}
 		case actionTypes.FETCHING_POLICIES_DATA_FAIL:

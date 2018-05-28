@@ -15,9 +15,10 @@ class Chat extends PureComponent {
 	}
 
 	componentDidMount() {
-		const last = this.props.messagesData[this.props.messagesData.length - 1];
-		setInterval(() => {
-			this.props.fetchingMessages(last.timestamp);
+		setInterval(async () => {
+			const last = this.props.messagesData[this.props.messagesData.length - 1];
+			await this.props.fetchingMessages(last.timestamp);
+			window.scrollTo(0,document.body.scrollHeight);
 		}, 2000);
 	}
 

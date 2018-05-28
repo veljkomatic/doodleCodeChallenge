@@ -3,15 +3,15 @@ import Network from '../network';
 
 const Author = 'Veljko';
 
-export const fetchingMessages = (timpestamp) => async (dispatch) => {
+export const fetchingMessages = (timestamp) => async (dispatch) => {
 	dispatch({
 		type: actionTypes.FETCHING_MESSAGES
 	});
 
-    const response = await Network.get(timpestamp && {
-        since: timpestamp,
-        limit: 10
-    } || {});
+    const response = await Network.get( (timestamp && {
+		since: timestamp,
+		limit: 10
+	}) || {});
     
     if (response.error) {
 		dispatch({
@@ -33,8 +33,6 @@ export const createMessage = (message) => async (dispatch) => {
     dispatch({
 		type: actionTypes.CREATE_MESSAGE
     });
-
-    console.log("Message redux", message);
     
     const response = await Network.post({
         data: {
@@ -42,8 +40,6 @@ export const createMessage = (message) => async (dispatch) => {
             author: Author
         }
     });
-
-    console.log(response);
 
     if (response.error) {
 		dispatch({
