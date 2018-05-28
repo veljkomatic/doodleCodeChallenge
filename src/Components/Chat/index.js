@@ -16,9 +16,12 @@ class Chat extends PureComponent {
 
 	componentDidMount() {
 		setInterval(async () => {
-			const last = this.props.messagesData[this.props.messagesData.length - 1];
+			const numberOfMessages = this.props.messagesData.length;
+			const last = this.props.messagesData[numberOfMessages - 1];
 			await this.props.fetchingMessages(last.timestamp);
-			window.scrollTo(0,document.body.scrollHeight);
+			if(this.props.messagesData.length > numberOfMessages) {
+				window.scrollTo(0,document.body.scrollHeight);
+			}
 		}, 2000);
 	}
 
@@ -33,14 +36,14 @@ class Chat extends PureComponent {
 
 	render() {
 		return ([
-			<section key="chat" className="ChatSection">
+			<div key="chat" className="ChatSection">
 				{this.props.messagesData.length > 0 && this.props.messagesData.map(message => <Message {...message} key={message._id} />)}
-			</section>,
-			<section key="form" className="FormSection">
+			</div>,
+			<div key="form" className="FormSection">
 				<Form 
 					send={this.sendMessage}
 				/>
-			</section>
+			</div>
 		]);
 	}
 };
