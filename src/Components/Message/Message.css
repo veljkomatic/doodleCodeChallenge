@@ -1,0 +1,48 @@
+.Message {
+	border: 1px solid #dce0e2;
+	border-radius: 5px;
+	padding: 16px;
+	background: #ffffff;
+	margin-bottom: 8px;
+	max-width: 420px;
+}
+
+@media screen and (max-width: 420px) {
+	.Message {
+		max-width: 240px;
+	}
+}
+
+.Message .Message__sender {
+	color: #a7acaf;
+	font-size: 14px;
+	margin-bottom: 8px;
+}
+
+.Message .Message__body {
+	font-size: 16px;
+	margin-bottom: 8px;
+	color: #464D56;
+}
+
+.Message .Message__timestamp {
+	color: #a7acaf;
+	font-size: 14px;
+}
+
+.Message--personal {
+	background: #FCF5C7;
+	align-self: flex-end;
+	padding: 0;
+	margin: 16px 0;
+}
+
+.Message.Message--personal .Message__body{
+	padding: 16px 16px 8px 16px;
+}
+
+.Message.Message--personal .Message__timestamp{
+	padding: 8px;
+	text-align: right;
+}
+

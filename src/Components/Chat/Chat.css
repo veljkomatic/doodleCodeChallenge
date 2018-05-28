@@ -1,0 +1,19 @@
+.ChatSection {
+	max-width: 592px;
+	margin: auto;
+	padding: 24px;
+	padding-bottom: 80px;
+	display: flex;
+	flex-direction: column;
+	align-items: flex-start;
+	min-height: calc(100vh - 118px);
+	justify-content: flex-end;
+}
+
+.FormSection {
+	margin: 0 auto;
+	width: 100%;
+	background: #3D99D2;
+	position: fixed;
+	bottom: 0;
+}

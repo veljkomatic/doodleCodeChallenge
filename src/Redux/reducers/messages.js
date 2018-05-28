@@ -1,7 +1,7 @@
 import { actionTypes } from '../actionCreators/types';
 
 const INITIAL_STATE = {
-	messages: [],
+	messagesData: [],
 	loading: false,
 	error: ''
 };
@@ -19,7 +19,7 @@ export default (state = INITIAL_STATE, action) => {
 				...state,
 				loading: false,
 				error: '',
-				messages: action.payload 
+				messagesData: action.payload 
 			};
 		}
 		case actionTypes.FETCHING_POLICIES_DATA_FAIL:
@@ -39,10 +39,10 @@ export default (state = INITIAL_STATE, action) => {
 				...state,
 				loading: false,
 				error: '',
-				messages: {
-					...state.messages,
-					...action.payload
-				}
+				messagesData: [
+					...state.messagesData,
+					action.payload
+				]
 			};
 		case actionTypes.CREATE_MESSAGES_FAIL:
 			return {

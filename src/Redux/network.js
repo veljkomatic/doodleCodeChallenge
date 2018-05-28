@@ -16,7 +16,7 @@ const fetch = async function (request) {
 		const response = await axios(request);
 
 		if (response && response.status >= 200 && response.status <= 299) {
-			return response;
+			return response.data;
 		} else if (response && response.status >= 400 && response.status <= 499) {
 			return { error };
 		}
@@ -28,13 +28,12 @@ const fetch = async function (request) {
 
 class Network {
 
-	static get() {
+	static get(params = {}) {
 		const request = {
 			url: baseURL,
 			method: 'GET',
-			params: {
-				token: 'NqebNLtXsswN'
-			}
+			headers: requestHeaders,
+			params
 		};
 		return fetch(request);
 	}
@@ -44,9 +43,10 @@ class Network {
 			url: baseURL,
 			method: 'POST',
 			headers: requestHeaders,
-			params: params,
+			params,
 			data
 		};
+		return fetch(request);
 	}
 }
 
